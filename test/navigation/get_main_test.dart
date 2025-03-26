@@ -544,7 +544,7 @@ void main() {
     await tester.pumpAndSettle();
     Get.to(() => const SecondScreen());
     await tester.pumpAndSettle();
-    Get.snackbar('title', "message");
+    Get.snackbar(const SizedBox());
     await tester.pumpAndSettle();
     Get.back();
     Get.close();

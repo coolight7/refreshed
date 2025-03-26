@@ -247,9 +247,6 @@ class SnackbarController {
               snackbar.onHover?.call(snackbar, SnackHoverState.exited),
           child: GestureDetector(
             behavior: snackbar.hitTestBehavior ?? HitTestBehavior.deferToChild,
-            onTap: snackbar.onTap != null
-                ? () => snackbar.onTap?.call(snackbar)
-                : null,
             child: snackbar,
           ),
         ),
