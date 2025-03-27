@@ -29,6 +29,8 @@ migrate_working_dir/
 build/
 # demo/
 # demo2/
+.flutter-plugins
+.flutter-plugins-dependencies
 
 # FVM Version Cache
 .fvm/
