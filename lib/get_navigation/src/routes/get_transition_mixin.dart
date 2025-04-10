@@ -707,7 +707,9 @@ Cannot read the previousTitle for a route that has not yet been installed""",
           );
 
         case Transition.topLevel:
-          return const ZoomPageTransitionsBuilder().buildTransitions(
+          return const ZoomPageTransitionsBuilder(
+                  backgroundColor: Colors.transparent)
+              .buildTransitions(
             route,
             context,
             animation,
