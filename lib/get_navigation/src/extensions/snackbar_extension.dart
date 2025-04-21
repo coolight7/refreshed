@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:refreshed/route_manager.dart';
-import 'package:refreshed/utils.dart';
 
 extension ExtensionSnackbar on GetInterface {
   SnackbarController rawSnackbar(
