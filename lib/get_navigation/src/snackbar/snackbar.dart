@@ -293,6 +293,8 @@ class GetSnackBarState extends State<GetSnackBar>
           : null,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
+        border: Border.all(
+            color: const Color.fromRGBO(255, 255, 255, 0.1), width: 1),
         boxShadow: widget.boxShadows,
       ),
       child: Column(
