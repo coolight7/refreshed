@@ -294,7 +294,7 @@ class GetSnackBarState extends State<GetSnackBar>
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
         border: Border.all(
-            color: const Color.fromRGBO(255, 255, 255, 0.1), width: 1),
+            color: const Color.fromRGBO(102, 204, 255, 0.1), width: 1),
         boxShadow: widget.boxShadows,
       ),
       child: Column(
@@ -304,6 +304,7 @@ class GetSnackBarState extends State<GetSnackBar>
           Padding(
             padding: EdgeInsets.only(
               top: widget.padding.top,
+              bottom: widget.padding.bottom,
               left: left,
               right: right,
             ),
