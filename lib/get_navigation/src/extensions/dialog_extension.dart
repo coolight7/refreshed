@@ -42,9 +42,10 @@ extension DialogExtension on GetInterface {
       transitionDuration: transitionDuration ?? defaultDialogTransitionDuration,
       transitionBuilder: (context, animation, secondaryAnimation, child) {
         return FadeTransition(
-          opacity: CurvedAnimation(
-            parent: animation,
-            curve: transitionCurve ?? defaultDialogTransitionCurve,
+          opacity:
+              CurveTween(curve: transitionCurve ?? defaultDialogTransitionCurve)
+                  .animate(
+            animation,
           ),
           child: child,
         );

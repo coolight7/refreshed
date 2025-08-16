@@ -74,10 +74,7 @@ class GetDialogRoute<T> extends PopupRoute<T> {
   ) {
     if (_transitionBuilder == null) {
       return FadeTransition(
-        opacity: CurvedAnimation(
-          parent: animation,
-          curve: Curves.linear,
-        ),
+        opacity: animation,
         child: child,
       );
     }

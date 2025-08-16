@@ -173,13 +173,13 @@ class SnackbarController {
 
   Animation<double> _createBlurFilterAnimation() =>
       Tween<double>(begin: 0, end: snackbar.overlayBlur).animate(
-        CurvedAnimation(
-          parent: _controller,
-          curve: const Interval(
-            0,
-            0.35,
-            curve: Curves.easeInOutCirc,
-          ),
+        CurveTween(
+            curve: const Interval(
+          0,
+          0.35,
+          curve: Curves.easeInOutCirc,
+        )).animate(
+          _controller,
         ),
       );
 
@@ -187,13 +187,13 @@ class SnackbarController {
         begin: const Color(0x00000000),
         end: snackbar.overlayColor,
       ).animate(
-        CurvedAnimation(
-          parent: _controller,
-          curve: const Interval(
-            0,
-            0.35,
-            curve: Curves.easeInOutCirc,
-          ),
+        CurveTween(
+            curve: const Interval(
+          0,
+          0.35,
+          curve: Curves.easeInOutCirc,
+        )).animate(
+          _controller,
         ),
       );
 

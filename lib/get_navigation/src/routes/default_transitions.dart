@@ -197,9 +197,8 @@ class SizeTransitions {
   ) =>
       Align(
         child: SizeTransition(
-          sizeFactor: CurvedAnimation(
-            parent: animation,
-            curve: curve,
+          sizeFactor: CurveTween(curve: curve).animate(
+            animation,
           ),
           child: child,
         ),

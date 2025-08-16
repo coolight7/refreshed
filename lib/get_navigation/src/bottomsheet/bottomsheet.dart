@@ -127,7 +127,7 @@ class GetModalBottomSheetRoute<T> extends PopupRoute<T> {
   @override
   Animation<double> createAnimation() {
     if (curve != null) {
-      return CurvedAnimation(curve: curve!, parent: _animationController!.view);
+      return CurveTween(curve: curve!).animate(_animationController!.view);
     }
     return _animationController!.view;
   }
