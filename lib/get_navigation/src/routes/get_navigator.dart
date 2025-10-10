@@ -2,8 +2,6 @@ import "package:flutter/widgets.dart";
 import "package:refreshed/refreshed.dart";
 
 class GetNavigator extends Navigator {
-  static final heroCtrl = HeroController();
-
   GetNavigator({
     required List<GetPage> super.pages,
     super.key,
@@ -15,12 +13,12 @@ class GetNavigator extends Navigator {
     super.restorationScopeId,
   }) : super(
           observers: <NavigatorObserver>[
-            heroCtrl,
             ...?observers,
           ],
           transitionDelegate:
               transitionDelegate ?? const DefaultTransitionDelegate<dynamic>(),
         );
+
   GetNavigator.onGenerateRoute({
     required List<GetPage> super.pages,
     GlobalKey<NavigatorState>? super.key,
