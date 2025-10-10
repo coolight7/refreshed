@@ -1,3 +1,86 @@
+## 3.2.0
+
+### State Management Improvements
+
+- **Controller Lifecycle Refactoring**:
+
+  - Refactored controller lifecycle management with a more composable architecture and fewer inheritance layers.
+  - Introduced focused mixins (`UpdateMixin`, `AppLifecycleMixin`) to separate concerns and reduce code duplication.
+  - Simplified controller hierarchy with modern Dart 3.8 pattern matching while maintaining backward compatibility.
+  - Converted `ScrollMixin` to a proper controller class (`GetxScrollController`) for better type safety and usability.
+  - Added backward compatibility aliases with deprecation notices to ensure smooth migration.
+  - Improved `GetxScrollController` with more concise scroll event handling and better documentation.
+  - Enhanced scroll edge detection with cleaner conditional logic and improved error handling.
+
+- **Reactive Classes Improvements**:
+
+  - Created a shared utility (`RxJsonUtils`) for safer JSON conversion in reactive classes.
+  - Eliminated duplicated error handling code in `toJson()` methods across `Rx` and `Rxn` classes.
+  - Improved error messages with more specific type information.
+  - Added JSON serialization support for reactive collections (`RxList`, `RxMap`, `RxSet`).
+  - Implemented specialized collection conversion utilities for handling nested objects.
+  - Added fallback mechanism for safer JSON conversion with `tryToJson` method.
+  - Simplified the value setter in `RxObjectMixin` with clearer conditional statements for better readability.
+  - Refactored `BindElement._subscribeToController` to use helper methods for each controller type, improving maintainability.
+  - Removed redundant field declarations in `_FactoryBind` class by properly using constructor parameter forwarding.
+
+- **State Management Modernization**:
+
+  - Modernized `Bind` class static methods with improved type safety and consistent return types.
+  - Enhanced error handling in `replace` and `lazyReplace` methods with more descriptive error messages.
+  - Improved documentation across all `Bind` class methods with detailed parameter descriptions and usage examples.
+  - Refactored `Bind.of` method with clearer pattern matching and better error reporting.
+  - Fixed inconsistent behavior in `put` and `spawn` methods regarding the `autoRemove` parameter.
+  - Leveraged Dart 3.8 pattern matching in state management utilities for more readable code.
+  - Created a shared `BindInterface` to eliminate code duplication between `Bind` and `Binder` classes.
+  - Improved maintainability by standardizing common fields and methods across binding implementations.
+
+## 3.1.0
+
+### Code Modernization
+
+- **Dart 3.8 Pattern Matching**:
+
+  - Modernized state management code with Dart 3.8 pattern matching and concise syntax.
+  - Improved readability and reduced verbosity in reactive extensions and state management classes.
+
+- **Reactive Extensions Improvements**:
+
+  - Enhanced `RxnStringExt` with new utility methods using pattern matching: `isNullOrEmpty`, `orDefault`, and `length`.
+  - Modernized numeric extensions (`RxnNumExt`, `RxnDoubleExt`, `RxnIntExt`) with concise pattern matching for operators.
+  - Improved boolean extensions (`RxnBoolExt`) with modern syntax for logical operations.
+
+- **State Management Enhancements**:
+
+  - Modernized `Bind` class methods with pattern matching and concise syntax.
+  - Improved `BindElement` class with pattern matching for controller subscriptions and lifecycle management.
+  - Enhanced `lazyPut`, `replace`, and `lazyReplace` methods with cleaner syntax and better documentation.
+
+- **Navigation Improvements**:
+
+  - Modernized `GetDelegate` methods with Dart 3.8 pattern matching and switch expressions.
+  - Enhanced `PageSettings` class with pattern matching for equality checks and type handling.
+  - Improved route handling with clearer code structure and better type safety.
+  - Refactored navigation methods for better readability and maintainability.
+  - Modernized route middleware with pattern matching for parameter handling and redirection logic.
+  - Enhanced route parsing with improved null safety and cleaner parameter extraction.
+  
+- **Snackbar Controller Improvements**:
+
+  - Modernized `SnackbarController` with Dart 3.8 pattern matching for animation status handling.
+  - Enhanced snackbar positioning and alignment with cleaner switch expressions.
+  - Improved timer configuration and dismissal behavior with pattern matching.
+  - Modernized `SnackBarQueue` with list pattern matching for better queue management.
+  - Added comprehensive documentation to all modernized methods.
+
+- **Worker Utilities Modernization**:
+  - Refactored worker disposal methods using Dart 3.8 switch expressions.
+  - Improved conditional logic in reactive workers with functional programming style.
+
+## 3.0.3
+
+- I'm back! I'm continuing to maintain and improve Refreshed. I'll do my best to keep up with issues and pull requests. Thanks for your support!
+
 ## 3.0.2
 
 - Fixed defaultPopGesture

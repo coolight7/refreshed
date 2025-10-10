@@ -140,6 +140,13 @@ class RxList<E> extends GetListenable<List<E>>
 
   @override
   String toString() => 'RxList(${value.join(', ')})';
+
+  /// Converts this reactive list to a JSON array by applying toJson to each element.
+  ///
+  /// If any element doesn't support toJson, an exception will be thrown with
+  /// specific information about the type that caused the error.
+  @override
+  dynamic toJson() => RxJsonUtils.listToJson(value, E.toString());
 }
 
 extension ListExtension<E> on List<E> {
@@ -149,47 +156,33 @@ extension ListExtension<E> on List<E> {
   /// Add [item] to [List<E>] only if [item] is not null.
   ///
   /// If [item] is not null, it is added to the list.
-  void addNonNull(E? item) {
-    if (item != null) {
-      add(item);
-    }
-  }
+  void addNonNull(E? item) =>
+      switch (item) { var value? => add(value), _ => null };
 
   /// Add [item] to `List<E>` only if [condition] is true.
   ///
   /// If [condition] is a boolean value and evaluates to true, [item] is added to the list.
-  void addIf(bool condition, E item) {
-    if (condition) {
-      add(item);
-    }
-  }
+  void addIf(bool condition, E item) => condition ? add(item) : null;
 
   /// Adds [Iterable<E>] to [List<E>] only if [condition] is true.
   ///
   /// If [condition] is a boolean value and evaluates to true, [items] are added to the list.
-  void addAllIf(bool condition, Iterable<E> items) {
-    if (condition) {
-      addAll(items);
-    }
-  }
+  void addAllIf(bool condition, Iterable<E> items) =>
+      condition ? addAll(items) : null;
 
   /// Replaces all existing items of this list with [item].
   ///
   /// Clears the list and adds [item].
-  void assign(E item) {
-    if (this is RxList) {
-      (this as RxList<E>).value.clear();
-    }
-    add(item);
-  }
+  void assign(E item) => switch (this) {
+        RxList<E> rxList => {rxList.value.clear(), add(item)},
+        _ => {clear(), add(item)}
+      };
 
   /// Replaces all existing items of this list with [items].
   ///
   /// Clears the list and adds all elements from [items].
-  void assignAll(Iterable<E> items) {
-    if (this is RxList) {
-      (this as RxList<E>).value.clear();
-    }
-    addAll(items);
-  }
+  void assignAll(Iterable<E> items) => switch (this) {
+        RxList<E> rxList => {rxList.value.clear(), addAll(items)},
+        _ => {clear(), addAll(items)}
+      };
 }
