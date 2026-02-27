@@ -346,19 +346,20 @@ class SnackbarController {
       "Cannot remove an entry from a snackbar that has already been disposed. "
       "Ensure the snackbar is still active before attempting to remove it.",
     );
+    if (false == _transitionCompleter.isCompleted) {
+      _cancelTimer();
 
-    _cancelTimer();
+      // Handle different removal behaviors based on dismissal method
+      switch (_wasDismissedBySwipe) {
+        case true:
+          // For swipe dismissal, reset controller after a short delay
+          Timer(const Duration(milliseconds: 200), _controller.reset);
+          _wasDismissedBySwipe = false;
 
-    // Handle different removal behaviors based on dismissal method
-    switch (_wasDismissedBySwipe) {
-      case true:
-        // For swipe dismissal, reset controller after a short delay
-        Timer(const Duration(milliseconds: 200), _controller.reset);
-        _wasDismissedBySwipe = false;
-
-      case false:
-        // For regular dismissal, reverse the animation
-        _controller.reverse();
+        case false:
+          // For regular dismissal, reverse the animation
+          _controller.reverse();
+      }
     }
   }
 
