@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:refreshed/get_navigation/src/routes/not_found_page.dart';
 
 import '../../../get_instance/src/bindings_interface.dart';

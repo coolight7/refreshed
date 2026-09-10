@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:material_ui/material_ui.dart";
 
 /// Extension providing additional functionality for BuildContext.
 extension ContextExtension on BuildContext {

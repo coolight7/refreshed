@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../../get_instance/src/instance_extension.dart';
 import 'bind_element.dart';

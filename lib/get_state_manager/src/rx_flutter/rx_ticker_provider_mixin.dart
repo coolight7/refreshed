@@ -1,5 +1,5 @@
 import "package:flutter/foundation.dart";
-import "package:flutter/material.dart";
+import "package:material_ui/material_ui.dart";
 import "package:flutter/scheduler.dart";
 import "package:refreshed/get_state_manager/get_state_manager.dart";
 

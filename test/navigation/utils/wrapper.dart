@@ -1,6 +1,6 @@
 // ignore_for_file: always_specify_types
 
-import "package:flutter/material.dart";
+import "package:material_ui/material_ui.dart";
 import "package:refreshed/refreshed.dart";
 
 class Wrapper<T> extends StatelessWidget {

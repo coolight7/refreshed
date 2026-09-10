@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:material_ui/material_ui.dart";
 import "package:refreshed/get_state_manager/src/rx_flutter/rx_obx_widget.dart";
 import "package:refreshed/get_state_manager/src/simple/get_controllers.dart";
 import "package:refreshed/get_state_manager/src/simple/get_state.dart";

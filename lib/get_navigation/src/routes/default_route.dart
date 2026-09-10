@@ -1,4 +1,4 @@
-import "package:flutter/cupertino.dart";
+import "package:cupertino_ui/cupertino_ui.dart";
 import "package:refreshed/get_navigation/src/router_report.dart";
 import "package:refreshed/refreshed.dart";
 

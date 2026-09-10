@@ -1,7 +1,7 @@
 import "dart:async";
 
 import "package:flutter/foundation.dart";
-import "package:flutter/material.dart";
+import "package:material_ui/material_ui.dart";
 import "package:refreshed/get_rx/src/rx_types/rx_types.dart";
 import "package:refreshed/get_state_manager/get_state_manager.dart";
 import "package:refreshed/instance_manager.dart";

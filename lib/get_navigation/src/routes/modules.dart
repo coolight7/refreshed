@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:refreshed/get_navigation/src/router_report.dart';
 import 'package:refreshed/instance_manager.dart';
 import 'package:refreshed/refreshed.dart';

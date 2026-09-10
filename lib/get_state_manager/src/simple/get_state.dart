@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:material_ui/material_ui.dart";
 import "package:refreshed/refreshed.dart";
 
 /// Signature for a function that creates an object of type `T`.

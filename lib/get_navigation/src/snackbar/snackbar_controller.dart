@@ -2,7 +2,7 @@ import "dart:async";
 import "dart:math";
 import "dart:ui";
 
-import "package:flutter/material.dart";
+import "package:material_ui/material_ui.dart";
 import "package:refreshed/get_navigation/src/root/get_root.dart";
 import "package:refreshed/refreshed.dart";
 

@@ -1,6 +1,6 @@
 import "dart:async";
 
-import "package:flutter/material.dart";
+import "package:material_ui/material_ui.dart";
 import "package:refreshed/get_core/get_core.dart";
 import "package:refreshed/get_instance/src/lifecycle.dart";
 import "package:refreshed/get_navigation/src/router_report.dart";

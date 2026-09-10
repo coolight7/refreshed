@@ -1,7 +1,7 @@
 import "dart:async";
 import "dart:ui";
 
-import "package:flutter/material.dart";
+import "package:material_ui/material_ui.dart";
 import "package:refreshed/get_navigation/get_navigation.dart";
 import "package:refreshed/utils.dart";
 

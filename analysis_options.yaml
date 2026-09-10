@@ -2,4 +2,6 @@ analyzer:
   errors:
     no_wildcard_variable_uses: ignore
     overridden_fields: ignore
+  exclude:
+    - build/**
 include: package:flutter_lints/flutter.yaml
