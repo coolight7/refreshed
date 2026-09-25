@@ -103,6 +103,9 @@ class MiddlewareRunner {
 
 /// Handles page redirection in a GetX navigation context.
 class PageRedirect {
+  /// 中间件重定向的最大轮数（兜底：正常情况下第一轮就稳定了）
+  static const int maxRedirectPasses = 8;
+
   GetPage? route;
   GetPage? unknownRoute;
   RouteSettings? settings;
@@ -116,9 +119,13 @@ class PageRedirect {
   GetPageRoute<T> getPageToRoute<T>(
       GetPage rou, GetPage? unk, BuildContext context) {
     // Check for redirections until we reach a stable state
+    // 轮数必须有上限：一旦出现"目标没变却一直判定要重查"的情况，这个 `while` 会在
+    // UI 线程上原地打转，整个应用直接卡死（不再是"跳转失败"这种可见问题）
+    int passes = 0;
     while (needRecheck(context)) {
       // Break if we lose essential state
       if (settings == null || route == null) break;
+      if (++passes >= maxRedirectPasses) break;
     }
 
     // Determine the final route to use (unknown or regular)
@@ -182,10 +189,16 @@ class PageRedirect {
     final runner = MiddlewareRunner(matchedRoute.middlewares);
     route = runner.runOnPageCalled(matchedRoute);
     addPageParameter(route!);
+    final String? redirectFrom = settings?.name;
     settings = runner.runRedirect(settings!.name) ?? settings;
 
     // Return true if settings changed (redirection happened)
-    return settings != matchedRoute;
+    //
+    // 判据必须是"中间件把目标改到别处"，不能拿页面对象比较：`GetPage` 的相等性只看
+    // `key`，而带查询串跳转（`toNamed(..., parameters: ...)`）的页面 key 是"路径 +
+    // 查询串"，与这里重新匹配出来的 key（只有路径）必然不同 —— 用对象比较会永远返回
+    // true，`getPageToRoute` 的 `while` 就成了死循环（整个界面卡死）
+    return settings?.name != redirectFrom;
   }
 
   /// Adds parameters from [route] to [Get.parameters].
