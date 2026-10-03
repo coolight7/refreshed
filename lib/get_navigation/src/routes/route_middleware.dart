@@ -103,7 +103,7 @@ class MiddlewareRunner {
 
 /// Handles page redirection in a GetX navigation context.
 class PageRedirect {
-  /// 中间件重定向的最大轮数（兜底：正常情况下第一轮就稳定了）
+  /// 中间件重定向的最大轮数（安全上限：正常情况下第一轮就稳定了）
   static const int maxRedirectPasses = 8;
 
   GetPage? route;
